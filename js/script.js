@@ -13,7 +13,7 @@ function start() {
 
     val1 = roll(dice_size);
     val2 = roll(dice_size);
-    values.push(val1, val2);
+    values.push(val1, val1, val2, val2);
     call('d' + dice_size + '_' + val1, i1);
     call('d' + dice_size + '_' + val2, i2);
     $('#again').delay(800).fadeIn('medium');
