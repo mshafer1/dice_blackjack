@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Black Jack</title>
+    <meta name="description" content="Dice based black jack">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="js/dice.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body class="w3-black">
+    <div class="w3-dark-gray w3-center w3-hover-light-gray w3-margin" style="cursor: pointer;" onclick="start()">
+        <h1 class="">Start</h1>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col s6 w3-center js_reset" id="init1"></div>
+        <div class="w3-col s6 w3-center js_reset" id="init2"></div>
+    </div>
+    <div class="js_stack">
+        <div id="again" class="w3-row w3-center w3-padding-large w3-margin-top js_reset" style="display:none">
+            <button class=" w3-dark-gray w3-padding-large w3-button" style="cursor: pointer;" onclick="again()">Again?</button>
+        </div>
+        <div class="w3-row w3-margin-top">
+            <div class="w3-col s6 w3-center js_reset" id="again0_1"></div>
+            <div class="w3-col s6 w3-center js_reset" id="again0_2"></div>
+        </div>
+    </div>
+    <div class="w3-display-bottommiddle">
+        <p>Total: <span id="value">_</span></p>
+    </div>
+</body>
+
+</html>
