@@ -4,7 +4,7 @@ function _createFn(name, method) {
     eval(strfun);
 }
 
-
+// from https://stackoverflow.com/a/8273091
 function range(start, stop, step) {
     if (typeof stop == 'undefined') {
         // one param defined
@@ -48,15 +48,17 @@ range(1, 7).forEach(function (number) {
 });
 
 function _helper(div, dice) {
-    var a = ['', 'one ', 'two ', 'three ', 'four ', 'five ', 'six ', 'seven ', 'eight ', 'nine ', 'ten ', 'eleven ', 'twelve ', 'thirteen ', 'fourteen ', 'fifteen ', 'sixteen ', 'seventeen ', 'eighteen ', 'nineteen '];
+    var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
     console.log("Settin to ", dice, "\nDiv: ", div);
     div.hide().html(`<i class="fas fa-dice-${a[dice]} w3-jumbo"></i>`).fadeIn('slow');
 }
 
+// from https://stackoverflow.com/a/3368280
 function sum(arr) {
     var result = 0, n = arr.length || 0; //may use >>> 0 to ensure length is Uint32
-    while (n--) {
-        result += +arr[n]; // unary operator to ensure ToNumber conversion
+    while(n--) {
+      result += +arr[n]; // unary operator to ensure ToNumber conversion
     }
     return result;
-}
+  }
+  
