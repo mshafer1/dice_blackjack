@@ -7,3 +7,7 @@ body {
 input {
     font-size: 24pt!important;
 }
+
+.ontop {
+    z-index: 100!important;
+}
