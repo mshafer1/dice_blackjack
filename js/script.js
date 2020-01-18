@@ -6,6 +6,7 @@ var count = 0;
 
 function start() {
     $('.js_reset').hide();
+    $('.js_again_row').remove();
 
     values = [];
     i1 = $('#init1');
