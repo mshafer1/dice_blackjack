@@ -16,6 +16,7 @@ function start() {
     values.push(val1, val1, val2, val2);
     call('d' + dice_size + '_' + val1, i1);
     call('d' + dice_size + '_' + val2, i2);
+    $('.dice>input[type=checkbox]').attr('checked', true).attr('disabled', true);
     check_score([sum(values)]);
 }
 
@@ -37,6 +38,7 @@ function _setup_again() {
 }
 
 function again() {
+    $('.dice>input[type=checkbox]').attr('disabled', true);
     $('#again').fadeOut('slow', function () {
         a1 = $(`#again${count}_1`);
         a2 = $(`#again${count}_2`);
