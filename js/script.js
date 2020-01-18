@@ -16,8 +16,7 @@ function start() {
     values.push(val1, val1, val2, val2);
     call('d' + dice_size + '_' + val1, i1);
     call('d' + dice_size + '_' + val2, i2);
-    $('#again').delay(800).fadeIn('medium');
-    $('#value').delay(1000).html(sum(values)).fadeIn('slow');
+    check_score([sum(values)]);
 }
 
 function _setup_again() {
@@ -51,27 +50,24 @@ function again() {
         possibles.sort(function (a, b) { return b - a });
         console.log(possibles);
 
-        var value = "!!BUST!!"
-
-        var find = possibles.findIndex(element => element <= 21);
-
-        if (find != -1) {
-            value = possibles[find];
-        }
-
-
-        $('#value').fadeOut('medium', function () {
-            $(this).html(value).fadeIn('slow');
-
-            
-            if(find != -1) {
-                _setup_again();
-            }
-        });
-
-        values.push(val1, val2);
+        check_score(possibles);
         // $('#again').delay(1000).fadeIn('slow');
     });
+}
+
+function check_score(possibles) {
+    var value = "!!BUST!!";
+    var find = possibles.findIndex(element => element <= 21);
+    if (find != -1) {
+        value = possibles[find];
+    }
+    $('#value').fadeOut('medium', function () {
+        $(this).html(value).fadeIn('slow');
+        if (find != -1) {
+            _setup_again();
+        }
+    });
+    values.push(val1, val2);
 }
 
 function call(func) {
