@@ -1,10 +1,12 @@
 // Add list of files to cache here.
 const cacheName = 'cache-v1';
 const precacheResources = [
-  '/',
   'index.html',
   'css/styles.css',
+  'js/dice.js',
+  'js/script.js',
   'img/icon_560.png',
+  'manifest.json'
 ];
 
 self.addEventListener('install', event => {
