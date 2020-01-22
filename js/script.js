@@ -24,7 +24,7 @@ function showMsg(msg, title) {
 }
 
 function start() {
-    count = 0;
+    // count = -1;
     $('.js_reset').hide();
 
     values = [];
@@ -62,7 +62,7 @@ function _setup_again() {
 
 
     var _new_again_row = `
-    <div class="w3-row w3-margin-top js_again_row js_reset">
+    <div class="w3-row w3-margin-top js_reset">
         <div class="w3-col s2">&nbsp;</div>
         <div class="w3-col s3 w3-center js_reset js_${count}_input" style="display:none" id="again${count}_1"></div>
         <div class="w3-col s2 w3-center">&nbsp;</div>
@@ -71,10 +71,8 @@ function _setup_again() {
     </div>
     `
 
-    $('#again').appendTo('.js_stack').fadeIn('slow');
-
-    var _div = document.createElement('div')
     $('.js_stack').append(_new_again_row)
+    $('#again').appendTo('.js_stack').fadeIn('slow');
 }
 
 function update_tally_marker(index) {
@@ -94,11 +92,10 @@ function update_tally_marker(index) {
 
 function stand() {
     showMsg(`<h2 class="w3-center">${sum(taken_values)}</h2>`, "Final Score:");
-    $('.js_again_row').hide();
+    $('#again').hide();
 }
 
 function hit() {
-
     // check that at least one was selected
     var input_selector = `.js_${count - 1}_input >.dice> input[type=checkbox]:checked`
     var checked = $(input_selector)
@@ -146,8 +143,6 @@ function hit() {
 
         $(`#again${count-1}_1 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val1 > 21);
         $(`#again${count-1}_2 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val2 > 21);
-
-        // $('#again').delay(1000).fadeIn('slow');
     });
 }
 
