@@ -46,7 +46,7 @@ function start() {
 function set_score_tally(index, value) {
     var id = `#row${index}_total`;
     console.log("ID: ", id, "Total: ", value);
-    $(id).html(` + ${value}`)
+    $(id).html(` &nbsp;+ ${value}`)
 
     var total = sum(taken_values) + value;
     $('#value').fadeOut('medium', function () {
@@ -61,7 +61,7 @@ function _setup_again() {
         <div class="w3-col s3 w3-center js_reset js_${count}_input" style="display:none" id="again${count}_1"></div>
         <div class="w3-col s2 w3-center">&nbsp;</div>
         <div class="w3-col s3 w3-center js_reset js_${count}_input" style="display:none" id="again${count}_2"></div>
-        <div class="w3-col s2 w3-border-left w3-border-white"><span id="row${count}_total"></span></div>
+        <div class="w3-col s2 w3-border-left w3-border-white" style="margin-top: 15px;"><span id="row${count}_total"></span></div>
     </div>
     `
 
