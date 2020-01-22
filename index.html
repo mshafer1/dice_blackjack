@@ -28,7 +28,8 @@
 <body class="w3-black">
     <div class="w3-row-padding">
         <div class="w3-col s4 w3-center">
-            <button class="w3-btn w3-black w3-border w3-border-white w3-margin w3-hover-light-gray" onclick="showRules()">?</button>
+            <button class="w3-btn w3-black w3-border w3-border-white w3-margin w3-hover-light-gray"
+                onclick="showRules()">?</button>
         </div>
         <div class="w3-col s4 w3-center">
             <div class="w3-dark-gray w3-center w3-hover-light-gray w3-margin" style="cursor: pointer;"
@@ -52,7 +53,7 @@
         <div id="again" class="w3-row w3-center w3-padding-large w3-margin-top ontop" style="display:none">
             <button class=" w3-dark-gray w3-padding-large w3-button w3-margin" style="cursor: pointer;"
                 onclick="hit()">Hit?</button>
-                <br/>
+            <br />
                 <button class=" w3-dark-gray w3-padding-large w3-button w3-margin" style="cursor: pointer;"
                 onclick="stand()">Stand</button>
         </div>
@@ -67,15 +68,13 @@
     <div id="msgModal" class="w3-modal">
         <div class="w3-modal-content w3-light-gray">
             <header class="w3-container w3-dark-gray">
-                <span onclick="$('#msgModal').hide()" class="w3-button w3-light-gray w3-display-topright"><i class="fas fa-times"></i></span>
+                <span onclick="$('#msgModal').hide()" class="w3-button w3-light-gray w3-display-topright"><i
+                        class="fas fa-times"></i></span>
                 <h2 id="msgHeader">Rules</h2>
             </header>
             <div class="w3-container">
-                <span id="msgBody">{% include rules.html %}</span>
+                <span id="msgBody">&nbsp;</span>
             </div>
-            <!-- <footer class="w3-container w3-teal">
-                <p>Modal Footer</p>
-            </footer> -->
         </div>
     </div>
 </body>

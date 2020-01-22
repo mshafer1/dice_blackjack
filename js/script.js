@@ -34,17 +34,13 @@ function start() {
 
     val1 = roll(dice_size);
     val2 = roll(dice_size);
-    values.push(val1, val1, val2, val2);
     call('d' + dice_size + '_' + val1, i1);
     call('d' + dice_size + '_' + val2, i2);
     $(find_all_dice).attr('checked', true).attr('disabled', true);
-    window.setTimeout(function () {
-        set_score_tally('i', sum([val1, val2]) * 2);
-        taken_values.push(val1, val1, val2, val2);
-    }, 500)
 
-    check_score([sum(values)]);
-
+    set_score_tally('i', sum([val1, val1, val2, val2]));
+    taken_values.push(val1, val1, val2, val2);
+    check_score([sum(taken_values)]);
 }
 
 function set_score_tally(index, value) {
@@ -59,8 +55,6 @@ function set_score_tally(index, value) {
 }
 
 function _setup_again() {
-
-
     var _new_again_row = `
     <div class="w3-row w3-margin-top js_reset">
         <div class="w3-col s2">&nbsp;</div>
@@ -90,27 +84,47 @@ function update_tally_marker(index) {
     console.log("Values: ", values, "\n\tIndex: ", index);
 }
 
-function stand() {
-    showMsg(`<h2 class="w3-center">${sum(taken_values)}</h2>`, "Final Score:");
-    $('#again').hide();
-}
-
-function hit() {
+function verify_at_least_one_selected() {
     // check that at least one was selected
-    var input_selector = `.js_${count - 1}_input >.dice> input[type=checkbox]:checked`
+    var input_selector = `.js_${count - 1}_input > ${find_all_dice}:checked`
     var checked = $(input_selector)
     // if not first time, but no values selected, show warning and quit.
     if (count > 0 && checked.length == 0) {
         showMsg(`You <b>must</b> select at least one die to continue`, "Select at least one to Continue");
+        return false;
+    }
+    return true;
+}
+
+function stand() {
+    if(!verify_at_least_one_selected()) {
         return;
     }
 
+    update_taken_values();
+    
+    showMsg(`<h2 class="w3-center">${sum(taken_values)}</h2>`, "Final Score:");
+    $('#again').hide();
+}
+
+function update_taken_values() {
     $(find_all_dice).attr('disabled', true);
+
+    var input_selector = `.js_${count - 1}_input > ${find_all_dice}:checked`
     $.each($(input_selector), function () {
         taken_values.push(
             parseInt($(this).val())
         );
     });
+}
+
+function hit() {
+    if(!verify_at_least_one_selected()) {
+        return;
+    }
+
+    update_taken_values();
+
     $('#again').fadeOut('slow', function () {
         a1 = $(`#again${count}_1`);
         a2 = $(`#again${count}_2`);
@@ -151,8 +165,6 @@ function check_score(possibles) {
     var find = possibles.findIndex(element => element <= 21);
     if (find != -1) {
         value = possibles[find];
-    }
-    if (find != -1) {
         _setup_again();
     } else {
         // bust
