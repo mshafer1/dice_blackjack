@@ -7,6 +7,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Dice Black Jack PWA">
+    <link rel="apple-touch-icon" href="img/icon_560.png">
+    <link rel="manifest" href="manifest.json">
 
     <title>Black Jack</title>
     <meta name="description" content="Dice based black jack">
@@ -23,6 +29,20 @@
     <script>
         {% include accordian.js %}
     </script>
+    <script>
+        // Register service worker.
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('SW registered with scope:', registration.scope);
+                    })
+                    .catch(err => {
+                        console.error('Registration failed:', err);
+                    });
+            });
+        }
+    </script>
 </head>
 
 <body class="w3-black">
@@ -32,8 +52,8 @@
                 onclick="showRules()">?</button>
         </div>
         <div class="w3-col s4 w3-center">
-            <div class="w3-dark-gray w3-center w3-button" style="margin-top: 10px; padding: 0px; padding-left: 10px; padding-right: 10px;"
-                onclick="start()">
+            <div class="w3-dark-gray w3-center w3-button"
+                style="margin-top: 10px; padding: 0px; padding-left: 10px; padding-right: 10px;" onclick="start()">
                 <h1 class="">Start</h1>
             </div>
         </div>
@@ -47,14 +67,15 @@
         <div class="w3-col s3 w3-center" id="init1"></div>
         <div class="w3-col s2 w3-center">&nbsp;</div>
         <div class="w3-col s3 w3-center" id="init2"></div>
-        <div class="w3-col s2 w3-border-left w3-border-white" style="margin-top: 15px;"><span id="rowi_total"></span></div>
+        <div class="w3-col s2 w3-border-left w3-border-white" style="margin-top: 15px;"><span id="rowi_total"></span>
+        </div>
     </div>
     <div class="js_stack ontop">
         <div id="again" class="w3-row w3-center w3-padding-large w3-margin-top ontop" style="display:none">
             <button class=" w3-dark-gray w3-padding-large w3-button w3-margin" style="cursor: pointer;"
                 onclick="hit()">Hit?</button>
             <br />
-                <button class=" w3-dark-gray w3-padding-large w3-button w3-margin" style="cursor: pointer;"
+            <button class=" w3-dark-gray w3-padding-large w3-button w3-margin" style="cursor: pointer;"
                 onclick="stand()">Stand</button>
         </div>
     </div>

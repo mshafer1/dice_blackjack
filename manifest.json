@@ -6,7 +6,7 @@
         "sizes": "560x560",
         "type": "image/png"
       }],
-    "start_url": "/",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#A0A0A0",
     "theme_color": "#ffffff"
