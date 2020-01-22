@@ -1,13 +1,12 @@
 html, body {
     height: 100%;
     font-size: 48pt;
-
     /* disable selection */
-    user-select:none;
+    user-select: none;
     -moz-user-select: none;
-    -ms-user-select:none; 
-    -o-user-select:none;
-    -webkit-user-select: none; 
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
 }
 
 input {
@@ -16,6 +15,16 @@ input {
 
 .ontop {
     z-index: 100!important;
+}
+
+/* make message selectable */
+
+.msgBody {
+    user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-user-select: text;
 }
 
 /* Hide the browser's default checkbox */
