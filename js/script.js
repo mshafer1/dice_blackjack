@@ -24,8 +24,8 @@ function showMsg(msg, title) {
 }
 
 function start() {
-    // count = -1;
-    $('.js_reset').hide();
+    count = 0;
+    $('.js_reset').remove();
 
     values = [];
     taken_values = [];
