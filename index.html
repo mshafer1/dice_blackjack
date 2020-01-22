@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 
 <html lang="en">
@@ -18,39 +20,63 @@
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <script src="js/dice.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        {% include accordian.js %}
+    </script>
 </head>
 
 <body class="w3-black">
     <div class="w3-row-padding">
         <div class="w3-col s4 w3-center">
-            <button class="w3-btn w3-black w3-border w3-border-white w3-margin w3-hover-light-gray">?</button>
+            <button class="w3-btn w3-black w3-border w3-border-white w3-margin w3-hover-light-gray" onclick="showRules()">?</button>
         </div>
         <div class="w3-col s4 w3-center">
-                <div class="w3-dark-gray w3-center w3-hover-light-gray w3-margin" style="cursor: pointer;" onclick="start()">
-                        <h1 class="">Start</h1>
-                    </div>
+            <div class="w3-dark-gray w3-center w3-hover-light-gray w3-margin" style="cursor: pointer;"
+                onclick="start()">
+                <h1 class="">Start</h1>
+            </div>
         </div>
-       <div class="w3-col s4 w3-center">
+        <div class="w3-col s4 w3-center">
             <p class="w3-margin">Total: <span id="value">_</span></p>
-       </div>
+        </div>
     </div>
-    
-    <div class="w3-row">
-        <div class="w3-col s6 w3-center js_reset" id="init1"></div>
-        <div class="w3-col s6 w3-center js_reset" id="init2"></div>
+
+    <div class="w3-row" class="js_reset">
+        <div class="w3-col s2 w3-center">&nbsp;</div>
+        <div class="w3-col s3 w3-center" id="init1"></div>
+        <div class="w3-col s2 w3-center">&nbsp;</div>
+        <div class="w3-col s3 w3-center" id="init2"></div>
+        <div class="w3-col s2 w3-border-left w3-border-white"><span id="rowi_total"></span></div>
     </div>
     <div class="js_stack ontop">
         <div id="again" class="w3-row w3-center w3-padding-large w3-margin-top js_reset ontop" style="display:none">
-            <button class=" w3-dark-gray w3-padding-large w3-button" style="cursor: pointer;" onclick="again()">Again?</button>
-        </div>
-        <div class="w3-row w3-margin-top">
-            <div class="w3-col s6 w3-center js_reset" id="again0_1"></div>
-            <div class="w3-col s6 w3-center js_reset" id="again0_2"></div>
+            <button class=" w3-dark-gray w3-padding-large w3-button w3-margin" style="cursor: pointer;"
+                onclick="hit()">Hit?</button>
+                <br/>
+                <button class=" w3-dark-gray w3-padding-large w3-button w3-margin" style="cursor: pointer;"
+                onclick="stand()">Stand</button>
         </div>
     </div>
     <div style="font-size: 36pt; z-index: -1;"> &nbsp;</div>
     <div class="w3-display-bottommiddle" style="margin-top: 0px!important; line-height: 0px;">
-        
+
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="msgModal" class="w3-modal">
+        <div class="w3-modal-content w3-light-gray">
+            <header class="w3-container w3-dark-gray">
+                <span onclick="$('#msgModal').hide()" class="w3-button w3-light-gray w3-display-topright"><i class="fas fa-times"></i></span>
+                <h2 id="msgHeader">Rules</h2>
+            </header>
+            <div class="w3-container">
+                <span id="msgBody">{% include rules.html %}</span>
+            </div>
+            <!-- <footer class="w3-container w3-teal">
+                <p>Modal Footer</p>
+            </footer> -->
+        </div>
     </div>
 </body>
 
