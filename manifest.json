@@ -1,13 +1,15 @@
 {
-    "name": "Dice Black Jack",
-    "short_name": "Dice Black Jack",
-    "icons": [{
+  "name": "Dice Black Jack",
+  "short_name": "Black Jack",
+  "icons": [
+    {
       "src": "img/icon_560.png",
-        "sizes": "560x560",
-        "type": "image/png"
-      }],
-    "start_url": "/dice_blackjack/",
-    "display": "standalone",
-    "background_color": "#A0A0A0",
-    "theme_color": "#ffffff"
-  }
+      "sizes": "560x560",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/dice_blackjack/",
+  "display": "standalone",
+  "background_color": "#A0A0A0",
+  "theme_color": "#ffffff"
+}
