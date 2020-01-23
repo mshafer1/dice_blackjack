@@ -50,7 +50,7 @@ range(1, 7).forEach(function (number) {
 function _helper(div, dice) {
     var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
     console.log("Settin to ", dice, "\nDiv: ", div);
-    div.hide().html(`<label class="dice"><input type="checkbox" value="${dice}"></input><i class="fas fa-dice-${a[dice]} w3-jumbo w3-round-large"></i></label>`).fadeIn('slow');
+    div.hide().html(`<label class="dice"><input type="checkbox" value="${dice}"></input><i class="fas fa-dice-${a[dice]} w3-jumbo w3-round-large"></i></label>`).fadeIn('fast');
 }
 
 // from https://stackoverflow.com/a/3368280

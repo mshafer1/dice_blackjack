@@ -10,7 +10,7 @@ const find_all_dice = '.dice > input[type=checkbox]';
 var count = 0;
 
 function showRules() {
-   showMsg(`
+    showMsg(`
     {% include rules.html %}
     `, "How to Play:")
 }
@@ -37,9 +37,11 @@ function start() {
     call('d' + dice_size + '_' + val1, i1);
     call('d' + dice_size + '_' + val2, i2);
     $(find_all_dice).attr('checked', true).attr('disabled', true);
+    
 
     set_score_tally('i', sum([val1, val1, val2, val2]));
     taken_values.push(val1, val1, val2, val2);
+
     check_score([sum(taken_values)]);
 }
 
@@ -49,9 +51,7 @@ function set_score_tally(index, value) {
     $(id).html(` &nbsp;+ ${value}`)
 
     var total = sum(taken_values) + value;
-    $('#value').fadeOut('medium', function () {
-        $(this).html(total).fadeIn('medium');
-    });
+    $('#value').html(total);
 }
 
 function _setup_again() {
@@ -70,7 +70,7 @@ function _setup_again() {
 }
 
 function update_tally_marker(index) {
-    var input_selector = `.js_${index}_input >.dice> input[type=checkbox]:checked`
+    var input_selector = `.js_${index}_input > ${find_all_dice}:checked`
     console.log("Inputs: ", $(input_selector))
     var values = []
     var checked = $(input_selector)
@@ -97,12 +97,12 @@ function verify_at_least_one_selected() {
 }
 
 function stand() {
-    if(!verify_at_least_one_selected()) {
+    if (!verify_at_least_one_selected()) {
         return;
     }
 
     update_taken_values();
-    
+
     showMsg(`<h2 class="w3-center">${sum(taken_values)}</h2>`, "Final Score:");
     $('#again').hide();
 }
@@ -119,13 +119,13 @@ function update_taken_values() {
 }
 
 function hit() {
-    if(!verify_at_least_one_selected()) {
+    if (!verify_at_least_one_selected()) {
         return;
     }
 
     update_taken_values();
 
-    $('#again').fadeOut('slow', function () {
+    $('#again').fadeOut('medium', function () {
         a1 = $(`#again${count}_1`);
         a2 = $(`#again${count}_2`);
 
@@ -155,8 +155,8 @@ function hit() {
         check_score(possibles);
         values.push(val1, val2);
 
-        $(`#again${count-1}_1 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val1 > 21);
-        $(`#again${count-1}_2 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val2 > 21);
+        $(`#again${count - 1}_1 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val1 > 21);
+        $(`#again${count - 1}_2 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val2 > 21);
     });
 }
 
@@ -171,9 +171,7 @@ function check_score(possibles) {
         $(find_all_dice).attr('disabled', true);
         $('.js_stack').append('<div class="w3-center js_reset"><h1>!!BUST!!</h1></div>');
 
-        $('#value').fadeOut('medium', function () {
-            $(this).html(value).fadeIn('slow');
-        });
+        $('#value').hide().html(value).fadeIn('medium');
     }
 }
 
