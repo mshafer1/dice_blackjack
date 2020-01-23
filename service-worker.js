@@ -6,7 +6,8 @@ const precacheResources = [
   'js/dice.js',
   'js/script.js',
   'img/icon_560.png',
-  'manifest.json'
+  'manifest.json',
+  'use.fontawesome.com/releases/v5.2.0/css/all.css'
 ];
 
 self.addEventListener('install', event => {
