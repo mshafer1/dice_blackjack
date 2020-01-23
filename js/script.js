@@ -51,7 +51,7 @@ function set_score_tally(index, value) {
     $(id).html(` &nbsp;+ ${value}`)
 
     var total = sum(taken_values) + value;
-    $('#value').html(total);
+    $('.js_total').html(total);
 }
 
 function _setup_again() {
