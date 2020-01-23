@@ -2,7 +2,7 @@
     "name": "Dice Black Jack",
     "short_name": "Dice Black Jack",
     "icons": [{
-      "src": "/img/icon_560.png",
+      "src": "img/icon_560.png",
         "sizes": "560x560",
         "type": "image/png"
       }],
