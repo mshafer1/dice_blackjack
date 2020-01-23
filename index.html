@@ -16,22 +16,22 @@
     <meta name="msapplication-navbutton-color" content="#FF9800">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="index.html">
-    <link rel="icon" sizes="560x560" href="img/icon_560.png">
-    <link rel="apple-touch-icon" href="img/icon_560.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" sizes="560x560" href="img/icon_560.png?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}">
+    <link rel="apple-touch-icon" href="img/icon_560.png?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}">
+    <link rel="manifest" href="manifest.json?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}">
 
     <title>Black Jack</title>
     <meta name="description" content="Dice based black jack">
     <meta name="author" content="SitePoint">
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <script src="js/dice.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/dice.js?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}"></script>
+    <script src="js/script.js?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}"></script>
     <script>
         {% include accordian.js %}
     </script>

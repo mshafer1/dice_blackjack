@@ -1,10 +1,12 @@
+---
+---
 // Add list of files to cache here.
 const cacheName = 'cache-v1';
 const precacheResources = [
   'index.html',
-  'css/styles.css',
-  'js/dice.js',
-  'js/script.js',
+  'css/styles.css?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}',
+  'js/dice.js?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}',
+  'js/script.js?{{ site.time | date: "%Y-%m-%d %H:%M" | url_encode }}',
   'img/icon_560.png',
   'manifest.json',
   'use.fontawesome.com/releases/v5.2.0/css/all.css'
