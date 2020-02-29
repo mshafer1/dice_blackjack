@@ -118,10 +118,15 @@ function update_taken_values() {
     });
 }
 
+var locked = false;
+
 function hit() {
-    if (!verify_at_least_one_selected()) {
+    if (!verify_at_least_one_selected() || locked) {
         return;
     }
+
+    locked = true;
+    this.enabled = false;
 
     update_taken_values();
 
@@ -157,6 +162,7 @@ function hit() {
 
         $(`#again${count - 1}_1 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val1 > 21);
         $(`#again${count - 1}_2 > ${find_all_dice}`).attr('disabled', sum(taken_values) + val2 > 21);
+        locked = false;
     });
 }
 
