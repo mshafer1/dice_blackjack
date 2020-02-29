@@ -97,7 +97,7 @@ function verify_at_least_one_selected() {
 }
 
 function stand() {
-    if (!verify_at_least_one_selected()) {
+    if (!verify_at_least_one_selected() || locked) {
         return;
     }
 
